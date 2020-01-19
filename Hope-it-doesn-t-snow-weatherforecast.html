@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Forecast</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Hope-it-doesn-t-snow-weatherforecast.css">
+    <script src="Hope-it-doesn-t-snow-weatherforecast.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>Weather Dashboard</header>
+
+    <container>
+        <div class="row">
+            <div class="col-3" id="Search-City">
+                <h2>Search for a City</h2>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="City Name" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                    </div>
+                </div>
+                <div class="search-history">
+                    <ul class="list-group"></ul>
+                </div>
+            </div>
+            <div class="col-9" id="Today-Weather">
+                <div class="card bg-grey text-black">
+                    <img src="./source/fa128b3bd59622936fb70c237275fb44.gif" class="card-img" width="300" height="400">
+                    <div class="card-img-overlay">
+                        <h3 class="card-title"></h3>
+                        <p class="card-text">
+                            <ul>
+                                <li class="Temp"></li>
+                                <li class="Wind-speed"></li>
+                                <li class="Humidity"></li>
+                                <li class="UV-index"></li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <h4>Five Day Forecast</h4>
+                <div class="row" id="Five-Day-Forecast"></div>
+
+            </div>
+    </container>
+
+</body>
+
+</html>

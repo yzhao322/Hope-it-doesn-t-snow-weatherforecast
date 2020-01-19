@@ -1,0 +1,40 @@
+body{
+    background-image: url(source/weather.png);
+}
+header{
+    margin: 10px 0;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'IM Fell Great Primer SC', serif;
+    background-image: url(source/canadian-dollar.png);
+}
+.col-2{
+    margin: 15px;
+    text-align: left;
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: gainsboro;
+    background-color: rgb(25, 165, 146);
+}
+.col-3{
+    font-family: 'IM Fell Great Primer SC', serif;
+    background-color: rgb(149, 218, 203);
+    padding: 20px;
+}
+.col-6{
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: gainsboro;
+    background-color: rgb(25, 165, 146);
+}
+h4{
+    font-family: 'IM Fell Great Primer SC', serif;
+    margin-top: 20px;
+}
+@media only screen and (max-width: 1200px) {
+    .col-3 {
+      padding-left: 10px;
+    }
+  }
