@@ -20,10 +20,10 @@ $(document).ready(function () {
                 var tempInF = (tempInC * 9 / 5) + 32; // temp in Fahrenheit
                 var windSpeed = currentweatherData.wind.speed;
                 var Humidity = currentweatherData.main.humidity;
-                var weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                var weatherIcon = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                 var lon = currentweatherData.coord.lon;
                 var lat = currentweatherData.coord.lat;
-                var currentUVindexUrl = `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&apikey=${apikey}`;
+                var currentUVindexUrl = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&apikey=${apikey}`;
                 fetch(currentUVindexUrl)
                     .then(function (response) {
                         return response.json();
@@ -55,17 +55,17 @@ $(document).ready(function () {
                             var tempInF = (tempInC * 9 / 5) + 32; // temp in Fahrenheit
                             var Humidity = fiveDayForecast[i].main.humidity;
                             var icon = fiveDayForecast[i].weather[0].icon;
-                            var weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                            var weatherIcon = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                             date.append($('<p>').append($('<img>').attr('src', weatherIcon)));
                             var temp = $('<p>').append("Temperature: " + '<br>' + tempInC.toFixed(2) + "C /" + tempInF.toFixed(2) + "F");
                             date.append(temp);
                             var Hum = $('<p>').append("Humidity: " + Humidity + " % ");
                             date.append(Hum);
                         }
-                         //media query for small display
-    if ($(window).width() <= 660) {
-        $('.col-2').addClass('col-6').removeClass('col-2'); 
-    }
+                        //media query for small display
+                        if ($(window).width() <= 660) {
+                            $('.col-2').addClass('col-6').removeClass('col-2');
+                        }
                     });
             })
 
@@ -76,8 +76,8 @@ $(document).ready(function () {
     if ("geolocation" in navigator) { //check geolocation available 
         //try to get user current location using getCurrentPosition() method
         navigator.geolocation.getCurrentPosition(function (position) {
-            var url = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude.toFixed(2)}&lon=${position.coords.longitude.toFixed(2)}&apikey=${apikey}`;
-            var fiveDayForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude.toFixed(2)}&lon=${position.coords.longitude.toFixed(2)}&apikey=${apikey}`;
+            var url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude.toFixed(2)}&lon=${position.coords.longitude.toFixed(2)}&apikey=${apikey}`;
+            var fiveDayForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude.toFixed(2)}&lon=${position.coords.longitude.toFixed(2)}&apikey=${apikey}`;
             getData(url, fiveDayForecastUrl);
 
         });
@@ -90,8 +90,8 @@ $(document).ready(function () {
     $('button').click(function () {
         init();
         var cityName = $('input').val();
-        var Url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&apikey=${apikey}`;
-        var fiveDayForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName},us&apikey=${apikey}`;
+        var Url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&apikey=${apikey}`;
+        var fiveDayForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},us&apikey=${apikey}`;
         $('.list-group').prepend($('<li>').attr('class', 'list-group-item').text(cityName));
         getData(Url, fiveDayForecastUrl);
         localStorage.setItem('cityname' + index, JSON.stringify(cityName));
@@ -101,8 +101,8 @@ $(document).ready(function () {
         event.preventDefault();
         init();
         var cityName = event.toElement.innerText;
-        var Url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&apikey=${apikey}`;
-        var fiveDayForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName},us&apikey=${apikey}`;
+        var Url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&apikey=${apikey}`;
+        var fiveDayForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},us&apikey=${apikey}`;
         getData(Url, fiveDayForecastUrl);
     })
 
@@ -122,6 +122,6 @@ $(document).ready(function () {
         $('.col-3').addClass('col-12').removeClass('col-3');
         $('.col-9').addClass('col-12').removeClass('col-9');
     }
-   
+
 
 })
