@@ -34,7 +34,7 @@ $(document).ready(function () {
                         var UVI = currentUVI.value;
                         $('h3').empty().text(currentweatherData.name).css('font-family', " 'IM Fell Great Primer SC', serif");
                         $('h3').append($('<img>').attr('src', weatherIcon));
-                        $('.date').append(date);
+                        $('.date').empty().append(date);
                         $('.Temp').empty().text("Temperature: " + tempInC.toFixed(2) + String.fromCharCode(176) + "C /" + tempInF.toFixed(2)+ String.fromCharCode(176) + "F");
                         $('.Wind-speed').empty().text("Wind Speed: " + windSpeed + " MPH");
                         $('.Humidity').empty().text("Humidity: " + Humidity + "%");
