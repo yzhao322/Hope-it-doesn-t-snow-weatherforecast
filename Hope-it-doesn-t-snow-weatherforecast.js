@@ -30,13 +30,15 @@ $(document).ready(function () {
                     })
                     .then(function (currentUVI) {
                         var UVI = currentUVI.value;
-
                         $('h3').empty().text(currentweatherData.name).css('font-family', " 'IM Fell Great Primer SC', serif");
                         $('h3').append($('<img>').attr('src', weatherIcon));
-                        $('.Temp').empty().text("Temperature: " + tempInC.toFixed(2) + "C /" + tempInF.toFixed(2) + "F");
+                        $('.Temp').empty().text("Temperature: " + tempInC.toFixed(2) + String.fromCharCode(176) + "C /" + tempInF.toFixed(2)+ String.fromCharCode(176) + "F");
                         $('.Wind-speed').empty().text("Wind Speed: " + windSpeed + " MPH");
                         $('.Humidity').empty().text("Humidity: " + Humidity + "%");
-                        $('.UV-index').empty().text("UV Index: " + UVI);
+                        var Uvi = $('<p>').text(" "+UVI+ " ").css('background-color', 'grey').css('color', 'white').css('display','inline-block').css('border-radius','3px');
+                        $('.UV-index').empty().text("UV Index: ").append(Uvi);
+
+                        
                     })
                 fetch(fiveDayForecastUrl)
                     .then(function (response) {
@@ -57,7 +59,7 @@ $(document).ready(function () {
                             var icon = fiveDayForecast[i].weather[0].icon;
                             var weatherIcon = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                             date.append($('<p>').append($('<img>').attr('src', weatherIcon)));
-                            var temp = $('<p>').append("Temperature: " + '<br>' + tempInC.toFixed(2) + "C /" + tempInF.toFixed(2) + "F");
+                            var temp = $('<p>').append("Temperature: " + '<br>' + tempInC.toFixed(2)+ String.fromCharCode(176) + "C /" + tempInF.toFixed(2)+ String.fromCharCode(176) + "F");
                             date.append(temp);
                             var Hum = $('<p>').append("Humidity: " + Humidity + " % ");
                             date.append(Hum);
