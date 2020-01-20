@@ -6,6 +6,7 @@ $(document).ready(function () {
         $('h6').remove();
         $('ol').remove();
         $('.col-2').remove();
+        $('.col-6').remove();
     }
 
     function getData(url, fiveDayForecastUrl) {
