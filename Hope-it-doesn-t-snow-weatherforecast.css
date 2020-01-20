@@ -8,6 +8,10 @@ header{
     font-family: 'IM Fell Great Primer SC', serif;
     background-image: url(./source/canadian-dollar.png);
 }
+.date{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
 .col-2{
     margin: 15px;
     text-align: left;

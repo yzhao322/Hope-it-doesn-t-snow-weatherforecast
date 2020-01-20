@@ -15,6 +15,8 @@ $(document).ready(function () {
             })
             .then(function (currentweatherData) {
                 var icon = currentweatherData.weather[0].icon;
+                var d = new Date();
+                var date = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
                 var tempInK = currentweatherData.main.temp; //temp in Kelvin
                 var tempInC = tempInK - 273.15; // temp in Celsius;
                 var tempInF = (tempInC * 9 / 5) + 32; // temp in Fahrenheit
@@ -32,6 +34,7 @@ $(document).ready(function () {
                         var UVI = currentUVI.value;
                         $('h3').empty().text(currentweatherData.name).css('font-family', " 'IM Fell Great Primer SC', serif");
                         $('h3').append($('<img>').attr('src', weatherIcon));
+                        $('.date').append(date);
                         $('.Temp').empty().text("Temperature: " + tempInC.toFixed(2) + String.fromCharCode(176) + "C /" + tempInF.toFixed(2)+ String.fromCharCode(176) + "F");
                         $('.Wind-speed').empty().text("Wind Speed: " + windSpeed + " MPH");
                         $('.Humidity').empty().text("Humidity: " + Humidity + "%");
@@ -45,8 +48,7 @@ $(document).ready(function () {
                         return response.json();
                     })
                     .then(function (fiveDayForecastData) {
-
-                        var fiveDayForecast = [fiveDayForecastData.list[0], fiveDayForecastData.list[8], fiveDayForecastData.list[16], fiveDayForecastData.list[24], fiveDayForecastData.list[32]];
+                        var fiveDayForecast = [fiveDayForecastData.list[8], fiveDayForecastData.list[16], fiveDayForecastData.list[24], fiveDayForecastData.list[32], fiveDayForecastData.list[39]];
                         for (var i = 0; i < 5; i++) {
                             var newDiv = $('<div>').attr('class', 'col-2');
                             $('#Five-Day-Forecast').append(newDiv);
@@ -88,7 +90,7 @@ $(document).ready(function () {
     }
 
 
-
+    
     $('button').click(function () {
         init();
         var cityName = $('input').val();
@@ -108,6 +110,7 @@ $(document).ready(function () {
         getData(Url, fiveDayForecastUrl);
     })
 
+    //show recent 10 search histories
     function showrecentsearch() {
         for (var i = 0; i < 10; i++) {
             if (localStorage.getItem('cityname' + i) != null) {
