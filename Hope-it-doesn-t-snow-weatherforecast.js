@@ -9,6 +9,7 @@ $(document).ready(function () {
         $('.col-6').remove();
     }
 
+    //function to get the current weather data and five day forecast data
     function getData(url, fiveDayForecastUrl) {
         fetch(url)
             .then(function (response) {
@@ -77,7 +78,7 @@ $(document).ready(function () {
 
     }
 
-
+   
     if ("geolocation" in navigator) { //check geolocation available 
         //try to get user current location using getCurrentPosition() method
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -91,7 +92,7 @@ $(document).ready(function () {
     }
 
 
-    
+    // search by input 
     $('button').click(function () {
         init();
         var cityName = $('input').val();
@@ -102,6 +103,8 @@ $(document).ready(function () {
         localStorage.setItem('cityname' + index, JSON.stringify(cityName));
         index++;
     })
+
+    //search by history
     $('.search-history').click(function (event) {
         event.preventDefault();
         init();
