@@ -68,10 +68,16 @@ $(document).ready(function () {
                             var Hum = $('<p>').append("Humidity: " + Humidity + " % ");
                             date.append(Hum);
                         }
+
+                        if ($(window).width() <= 1200) {
+                            $('.col-2').css('margin', '5px'); 
+                        }
                         //media query for small display
                         if ($(window).width() <= 660) {
                             $('.col-2').addClass('col-6').removeClass('col-2');
                         }
+
+                        
                     });
             })
 
@@ -125,7 +131,10 @@ $(document).ready(function () {
     }
     showrecentsearch();
 
-    //media query for medium display
+    //media query for medium and small display
+
+  
+
     if ($(window).width() <= 960) {
         $("#Search-City").before($("#Today-Weather"));
         $('.col-3').addClass('col-12').removeClass('col-3');
